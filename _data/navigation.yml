@@ -1,4 +1,5 @@
 - name: Home
-  link: /
+  url: /
 - name: About
-  link: /about.html
+  url: /about.html
+
