@@ -1,4 +1,60 @@
 ---
 ---
+
 @import "custom/variables";
 @import "bootstrap/bootstrap";
+
+body {
+	background-image: url({{ "assets/img/bg-1.png" | absolute_url }});
+}
+
+
+// Rows and cols
+.lightbg {
+	background-color: $light;
+	//background-image: url({{ "assets/img/bg-4.png" | absolute_url }});
+
+}
+
+.darkbg {
+	background-color: $dark;
+	color: $light;
+}
+
+.row.header {
+	height: 20%;
+}
+
+.content {
+	background-color: $light;
+	opacity: 90%;
+	min-height: 75%;
+}
+
+
+.footer {
+	min-height: 2em;
+}
+
+
+// ---- to-top button 
+
+#totoparrow {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 10px; /* Place the button 10px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: 1px solid $light; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: $dark; /* Set a background color */
+  color: $light; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px 15px 5px 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#totoparrow:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
