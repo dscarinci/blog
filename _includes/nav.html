@@ -1,4 +1,4 @@
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
    		 <span class="navbar-toggler-icon"></span>
 	</button>
@@ -7,17 +7,19 @@
   		{% for item in site.data.navigation %}
 		{% capture url %}/{{ page.lang }}{{ item.url }}{% endcapture %}
 			<li class="nav-item {% if page.url == url %}active{% endif %}">
-				<a class="nav-link" href="{{ url }}">{{ item.name }}</a>
+				<a class="nav-link" href="{{ url | absolute_url }}">{{ item.name }}</a>
 			</li>
 		{% endfor %}
 		</ul>
 		<span class="navbar-text">
-		{% if page.layout == "default" %}	
-			{% if page.lang == "en" %} 
-				en | <a href="{{ page.url | replace_first: "/en/", "/es/" }}">es</a>
-			{% else %}
-				<a href="{{ page.url | replace_first: "/es/", "/en/" }}">en</a> | es
-			{% endif %}
+		{% if page.url == "/" %}
+		<a href="/en/">en</a>  |
+		<a href="/es/" id="inactive"> es</a>
+		{% elsif page.layout == "default" %}
+			<a href="{{ page.url | replace_first: "/es/", "/en/" }}"
+			   {% if page.lang == "es" %}id="inactive"{% endif %} >en</a>  |
+		   <a href="{{ page.url | replace_first: "/en/", "/es/" }}" 
+			   {% if page.lang == "en" %}id="inactive"{% endif %} >es</a>
 		{% elsif page.layout == "post" %}
 			{% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}	
 			{% for post in posts %}

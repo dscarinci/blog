@@ -1,3 +1,24 @@
+---
+---
+
+// ------ Different background for h1
+//
+// Get background images
+var img_paths = [ 
+{% for path in site.data.background-images %}
+	"url({{ path | absolute_url}})",
+{% endfor %} ];
+// Get h1 elements
+var h1s = document.getElementsByTagName("h1");
+// Skip first header
+for (var i=1; i < h1s.length; i++) {
+	var num = Math.floor(Math.random() * (img_paths.length - 1)) + 1;	
+	h1s[i].style.backgroundImage = img_paths[num]; 
+}
+
+
+
+// ------ Go to top button ------
 //Get the button:
 mybutton = document.getElementById("totoparrow");
 console.log(mybutton)

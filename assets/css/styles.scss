@@ -5,44 +5,83 @@
 @import "bootstrap/bootstrap";
 
 body {
-	background-image: url({{ "assets/img/bg-1.png" | absolute_url }});
+	background-color: $white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.22rem;
+}
+
+
+// Text styles
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Unica One', cursive;
+}
+
+h1 {
+   font-size: 3rem;
+   color: $dark;  /* Fallback: assume this color ON TOP of image */
+   background-image: url({{ "assets/img/text-bg-1.png" | absolute_url }});
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+h2 {
+	font-size: 2.5rem;
+	color: $primary;
+}
+@include media-breakpoint-up(md) { 
+	h1 {
+		font-size: 5rem;
+	}
+}
+// Navigation bar
+
+#nav-box {
+	height: 4.5rem;
+	border-top: 0.2rem solid $white;
+  	background-image: url({{ "assets/img/text-bg-2.png" | absolute_url }});
+}
+
+.navbar-text a {
+	text-decoration: None; 
+}
+
+#inactive {
+	color: rgba(255, 255, 255, 0.5) ;
+}
+
+#inactive:hover {
+	color: rgba(255, 255, 255, 0.75) ;
+	text-decoration: None;
 }
 
 
 // Rows and cols
-.lightbg {
-	background-color: $light;
-	//background-image: url({{ "assets/img/bg-4.png" | absolute_url }});
 
+#content-col {
+	background-image: url({{ "assets/img/bg-1.png" | absolute_url }});
 }
 
-.darkbg {
-	background-color: $dark;
-	color: $light;
+main {
+	background-color: $white;
+	min-height: 100%;
+	margin: 0 2rem 0 2rem;
+	padding: 1rem 0.5rem;
 }
 
-.row.header {
-	height: 20%;
+@include media-breakpoint-up(md) {
+        main {
+                margin: 0 4rem 0 4rem;
+		padding: 2rem;
+        }
 }
-
-.content {
-	background-color: $light;
-	opacity: 90%;
-	min-height: 75%;
-}
-
-
-.footer {
-	min-height: 2em;
-}
-
 
 // ---- to-top button 
 
 #totoparrow {
   display: none; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
+  top: 20px; /* Place the button at the bottom of the page */
   right: 10px; /* Place the button 10px from the right */
   z-index: 99; /* Make sure it does not overlap */
   border: 1px solid $light; /* Remove borders */
@@ -58,3 +97,4 @@ body {
 #totoparrow:hover {
   background-color: #555; /* Add a dark-grey background on hover */
 }
+

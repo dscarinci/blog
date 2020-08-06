@@ -1,0 +1,44 @@
+<!doctype html>
+        <html lang="{{ page.lang }}">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{{ page.title }} </title>
+    <link rel="stylesheet" href={{ "assets/css/styles.css" | absolute_url }} >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Unica+One&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <div class="container-fluid vh-100"> <!-- container -->
+	    <div class="row"> <!-- first row -->
+		<div class="col">
+		<h1 class="text-center text-wrap p-5">Distribución anormal</h1>
+		</div>
+	</div> <!-- end of row -->
+	<div id="nav-box" class= "fixed-bottom">
+		{% include nav.html %}
+	</div> <!-- end of nav-box -->
+	<div class="row justify-content-center"> <! --second row -->
+		<div class="col-11 col-lg-8" id="content-col"> 
+			<main>{{ content }}</main>
+		</div>
+         </div> <!-- end of row -->
+         <button onclick="topFunction()" id="totoparrow" title="Go to top">
+                <i class="material-icons">arrow_upward</i>
+         </button>
+    </div> <!-- end of container -->
+    <script src={{ "assets/js/scripts.js" | absolute_url }}></script>
+  </body>
+</html>
+~                                                                                                       
+~                                                                                                       
+~                                                                                                       
+~              
