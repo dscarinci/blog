@@ -28,14 +28,74 @@ h1 {
 h2 {
 	font-size: 2.5rem;
 	color: $primary;
+	width:100%;
+	text-align: left;
+	border-bottom: 1px solid $light;
+	line-height: 0.1em;
+	margin: 1.5em 0;
 }
+
+h2 span {
+	background: $white;
+	padding-right: 30px;
+	background-image: url({{ "assets/img/h2-bg.png" | absolute_url }});
+   	-webkit-background-clip: text;
+   	-webkit-text-fill-color: transparent;
+
+}
+
+h3 {
+	color: $secondary;
+}
+
 @include media-breakpoint-up(md) { 
 	h1 {
 		font-size: 5rem;
 	}
 }
+
+// Links
+
+a:hover {
+	text-decoration: none;
+}
+
+// Lists ------
+
+ul.post-list {
+	list-style-type: none;
+}
+
+.post-list li {
+	padding-left: 1rem;
+}
+.post-list li:hover {
+	background-color: lighten( $light, 10% );
+
+	a {
+		color: $red;
+	}
+}
+.spacious-separator {
+	margin: 0 0.5em;
+}
+
+
+@include media-breakpoint-up(md) {
+	ul.post-list {
+		padding-left: 3rem;
+	}
+	.spacious-separator{
+		margin: 0 1.5em;
+	}
+}
+
+
 // Navigation bar
 
+
+
+// Old
 #nav-box {
 	height: 4.5rem;
 	border-top: 0.2rem solid $white;
@@ -62,15 +122,18 @@ h2 {
 	background-image: url({{ "assets/img/bg-1.png" | absolute_url }});
 }
 
-main {
+main, nav {
 	background-color: $white;
-	min-height: 100%;
 	margin: 0 2rem 0 2rem;
-	padding: 1rem 0.5rem;
+	padding: 1rem 0.5rem 5rem;
+}
+
+main {
+	min-height: 65vh;
 }
 
 @include media-breakpoint-up(md) {
-        main {
+        main, nav {
                 margin: 0 4rem 0 4rem;
 		padding: 2rem;
         }
