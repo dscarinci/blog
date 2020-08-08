@@ -29,19 +29,8 @@ h2 {
 	font-size: 2.5rem;
 	color: $primary;
 	width:100%;
-	text-align: left;
-	border-bottom: 1px solid $light;
-	line-height: 0.1em;
+	text-align: center;
 	margin: 1.5em 0;
-}
-
-h2 span {
-	background: $white;
-	padding-right: 30px;
-	background-image: url({{ "assets/img/h2-bg.png" | absolute_url }});
-   	-webkit-background-clip: text;
-   	-webkit-text-fill-color: transparent;
-
 }
 
 h3 {
@@ -52,6 +41,24 @@ h3 {
 	h1 {
 		font-size: 5rem;
 	}
+
+	h2 {
+		line-height: 0.1em;
+		border-bottom: 1px solid $light;
+	}
+	
+	h2 span {
+		padding:10px 30px;
+		background-image: url({{ "assets/img/h2-bg.png" | absolute_url }});
+   		-webkit-background-clip: text;
+   		-webkit-text-fill-color: transparent;
+	}
+}
+
+.date {
+	color: $green;
+	font-style: italic;
+	font-weight: 100;
 }
 
 // Links
@@ -93,48 +100,56 @@ ul.post-list {
 
 // Navigation bar
 
-
-
-// Old
-#nav-box {
-	height: 4.5rem;
-	border-top: 0.2rem solid $white;
-  	background-image: url({{ "assets/img/text-bg-2.png" | absolute_url }});
+.material-icons {
+	color: $red;
 }
 
-.navbar-text a {
+.navbar-nav .nav-item a {
+	color: darken($light, 15%);
+	margin-right: 2em;
+}
+
+.navbar-nav .nav-item a:hover {
+	color: $red;
+}
+
+.navbar-text {
 	text-decoration: None; 
+	color: $red;
+	a {
+		color: darken($light, 20%);
+	}
 }
 
-#inactive {
-	color: rgba(255, 255, 255, 0.5) ;
+.navbar-text a:hover {
+	color: darken($light, 50%);
 }
 
-#inactive:hover {
-	color: rgba(255, 255, 255, 0.75) ;
-	text-decoration: None;
+#active-lang {
+	color: darken($light, 50%);
 }
-
 
 // Rows and cols
 
 #content-col {
 	background-image: url({{ "assets/img/bg-1.png" | absolute_url }});
+	margin-bottom: 3vh;
 }
 
 main, nav {
 	background-color: $white;
-	margin: 0 2rem 0 2rem;
+	margin: 0 1.3rem;
 	padding: 1rem 0.5rem 5rem;
 }
 
 main {
 	min-height: 65vh;
+	padding: 1rem;
 }
 
 @include media-breakpoint-up(md) {
         main, nav {
-                margin: 0 4rem 0 4rem;
+                margin: 0 4rem;
 		padding: 2rem;
         }
 }

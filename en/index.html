@@ -1,16 +1,28 @@
 ---
-layout: main 
+layout: main
 title: Blog
 lang: en
 ---
-	<h1>Latest posts</h1>
+{% assign postsByYear = site.posts | where: "lang", page.lang |  group_by_exp:"post", "post.date | date: '%Y'" %}
+{% for year in postsByYear %}
+     <h2 class="text-center"><span>{{ year.name }}</span></h2>
+     {% assign postsByMonth = year.items | group_by_exp:"post", "post.date | date: '%-m'" %}
+     {% for month in postsByMonth %}
+     	{% if page.lang == "en" %}
+		{% assign m = month.name | minus: 1 %}
+     		<h3>{{ site.data.months.en[m] }}</h3>
+     	{% elsif page.lang == "es" %}
+        	{% capture es_month %}
+        	{% assign m = month.name | minus: 1 %}
+                {{ site.data.months.es[m] }}
+                {% endcapture %}
+		<h3>{{ es_month | capitalize }}</h3>
+    	{% endif %}
 
-	{% assign posts=site.posts | where:"lang", page.lang  %}
-	<ul>
-	{% for post in posts %}
-    	<li>
-        	<a href="{{ post.url }}">{{ post.title }}</a>
-    	</li>
-    	{{ post.excerpt }}
-	{% endfor %}
-	</ul>
+        <ul class="post-list">
+          {% for post in month.items %}
+	  <li>{{ post.date | date: '%d'}}<span class="spacious-separator">·</span><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+    {% endfor %}
+{% endfor %}

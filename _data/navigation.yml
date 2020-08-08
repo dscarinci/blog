@@ -1,5 +1,8 @@
-- name: Blog 
-  url: /
-- name: About
-  url: /about.html
-
+- url: /
+  name: 
+    - Home
+    - Inicio
+- url: /about.html
+  name:
+    - About
+    - Acerca de...

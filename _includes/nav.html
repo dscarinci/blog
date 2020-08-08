@@ -1,25 +1,35 @@
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-   		 <span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarText">
-		<ul class="nav navbar-nav mr-auto">
+<nav class="navbar navbar-expand-md">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="material-icons">menu</i></button>
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    		<ul class="navbar-nav mr-auto">
+		{% assign i = 0 %}
+		{% for lang in site.data.languages %}
+			{% if lang.name  == page.lang %}
+				{% assign i = lang.index %}
+				{% break %}
+			{% endif %}
+		{% endfor %}
+
   		{% for item in site.data.navigation %}
 		{% capture url %}/{{ page.lang }}{{ item.url }}{% endcapture %}
 			<li class="nav-item {% if page.url == url %}active{% endif %}">
-				<a class="nav-link" href="{{ url | absolute_url }}">{{ item.name }}</a>
+				<a class="nav-link" href="{{ url | absolute_url }}">{{ item.name[i] }}</a>
 			</li>
 		{% endfor %}
 		</ul>
 		<span class="navbar-text">
 		{% if page.url == "/" %}
-		<a href="/en/">en</a>  |
-		<a href="/es/" id="inactive"> es</a>
-		{% elsif page.layout == "default" %}
+			{% for lang in site.data.languages %}
+			<a href="/{{ lang.name }}/"
+			   {% if lang.name == page.lang %} id="active-lang" {% endif %}
+			   >{ {lang.name }}</a>  |
+		        {% endfor %}
+		{% elsif page.layout == "main" %}
 			<a href="{{ page.url | replace_first: "/es/", "/en/" }}"
-			   {% if page.lang == "es" %}id="inactive"{% endif %} >en</a>  |
+			   {% if page.lang == "en" %}id="active-lang"{% endif %} >en</a>  |
 		   <a href="{{ page.url | replace_first: "/en/", "/es/" }}" 
-			   {% if page.lang == "en" %}id="inactive"{% endif %} >es</a>
+			   {% if page.lang == "es" %}id="active-lang"{% endif %} >es</a>
 		{% elsif page.layout == "post" %}
 			{% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}	
 			{% for post in posts %}
