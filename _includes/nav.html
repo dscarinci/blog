@@ -23,18 +23,21 @@
 			{% for lang in site.data.languages %}
 			<a href="/{{ lang.name }}/"
 			   {% if lang.name == page.lang %} id="active-lang" {% endif %}
-			   >{ {lang.name }}</a>  |
+			   >{{ lang.name }}</a>
+		   {% if forloop.last == false %} | {% endif %}
 		        {% endfor %}
 		{% elsif page.layout == "main" %}
-			<a href="{{ page.url | replace_first: "/es/", "/en/" }}"
-			   {% if page.lang == "en" %}id="active-lang"{% endif %} >en</a>  |
-		   <a href="{{ page.url | replace_first: "/en/", "/es/" }}" 
-			   {% if page.lang == "es" %}id="active-lang"{% endif %} >es</a>
+			{% for lang in site.data.languages %}
+			{% capture page-lang %}/{{ page.lang }}/{% endcapture %}
+			{% capture current-lang %}/{{ lang.name}}/{% endcapture %}
+			<a href="{{ page.url | replace_first: page-lang, current-lang }}"
+			   {% if page.lang ==  lang.name %} id="active-lang"{% endif %} >{{ lang.name }}</a>
+		   {% if forloop.last == false %} | {% endif %}
+		        {% endfor %}
 		{% elsif page.layout == "post" %}
 			{% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}	
 			{% for post in posts %}
-    				{% if page.lang != post.lang %}<a href="{{ post.url }}">{{ post.lang }}</a>
-				{% else %}{{ post.lang }}{% endif %}
+    				<a href="{{ post.url }}" {% if post.lang ==  page.lang %} id="active-lang"{% endif %} >{{ post.lang }}</a>
 				{% if forloop.last == false %} | {% endif %}
 			{% endfor %}	
 		{% endif %}
