@@ -8,6 +8,7 @@ body {
 	background-color: $white;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 1.22rem;
+	color: $secondary;
 }
 
 
@@ -17,15 +18,93 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Unica One', cursive;
 }
 
-h1 {
+article {
+	p:first-of-type {
+		margin-top: 5em;
+	}
+
+	p:first-of-type:first-letter {
+		color: $light-green;
+		font-size: 5em;
+		line-height: 0.8em;
+		font-family: 'Unica One', serif;
+	   	
+	}
+
+}
+
+.footnotes {
+
+	p:first-of-type {
+		margin-top: 1em;
+	}
+
+	p:first-of-type:first-letter {
+		color: $dark;
+		font-size: 1em;
+		line-height: 1em;
+		font-family: 'Montserrat', sans-serif;
+	}
+
+}
+
+
+article, .textual-content {
+	h1 {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		text-align: center;
+		color: $dark;
+	}
+
+	h2, h3, h4, h5, h6 {
+		color: $dark;
+		text-align: left;
+	}
+       
+
+	strong {
+		color: $dark;
+	}
+
+	a {
+		color: $dark;
+		background-color: $light;
+	}
+
+	a:hover {
+		background-color: $light-green;
+	}
+	
+	p {
+		text-align: justify;
+	}
+
+	ul {
+  	list-style: none; /* Remove default bullets */
+	}
+
+	ul li::before {
+  		content: "–"; 
+  		color: $pink; 
+  		font-weight: bold; 
+  		display: inline-block; 
+  		width: 2em;
+  		margin-left: -1em; 
+}
+}
+
+
+
+#page-title {
    font-size: 3rem;
-   color: $dark;  /* Fallback: assume this color ON TOP of image */
+   color: $primary;  /* Fallback: assume this color ON TOP of image */
    background-image: url({{ "assets/img/text-bg-1.png" | absolute_url }});
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
 }
 
-h2 {
+#post-title {
 	font-size: 2.5rem;
 	color: $primary;
 	width:100%;
@@ -33,33 +112,101 @@ h2 {
 	margin: 1.5em 0;
 }
 
-h3 {
-	color: $secondary;
+.post-list h2 {
+	color: $primary;
+	margin-top: 2.5rem;
 }
 
 @include media-breakpoint-up(md) { 
-	h1 {
+	#page-title {
 		font-size: 5rem;
 	}
 
-	h2 {
+	#post-title, .post-list h2 {
+		font-size: 2em;
 		line-height: 0.1em;
 		border-bottom: 1px solid $light;
+		margin: 4rem 0 3rem;
 	}
 	
-	h2 span {
+	#post-title span, .post-list span {
 		padding:10px 30px;
-		background-image: url({{ "assets/img/h2-bg.png" | absolute_url }});
-   		-webkit-background-clip: text;
-   		-webkit-text-fill-color: transparent;
+		background-color: $white;
+		color: $primary;
 	}
 }
 
-.date {
-	color: $green;
-	font-style: italic;
-	font-weight: 100;
+.align-left {
+	float: left;
 }
+
+.align-right {
+	float: right;
+}
+
+#org-buttons {
+	margin-top: 10vh;
+	a {
+		color: $white;
+		background-color: $light-green;
+	}
+
+	a:hover {
+		background-color: $secondary;
+		}
+}
+
+// Tables
+
+table {
+	width: 100%;
+	margin: 1.5em 0;
+	border-bottom: 1px solid $light-green;
+	font-size: 0.6em;
+}
+
+td, th {
+	padding: 0.5em;
+}
+
+th {
+	border-bottom: 1px solid $light-green;
+	border-top: 1px solid $light-green;
+	background-color: $white;
+}
+
+tr:hover {
+	background-color: lighten($light, 10%);
+}
+
+td:hover {
+	background-color: lighten($light, 8%);
+}
+
+@include media-breakpoint-up(md) {
+	table {
+		font-size: 0.9em;
+	}
+}
+
+// Code, blockquote, etc ---
+
+pre {
+	padding: 1em;
+}
+
+blockquote {
+	padding: 0.5em 1em 0.5em 2em;
+	background-color: $light;
+	color: #666;
+	
+	p:first-of-type:first-letter {
+		color: inherit;
+		font-size: inherit;
+		font-family: inherit;
+	}
+}
+
 
 // Links
 
@@ -76,15 +223,25 @@ ul.post-list {
 .post-list li {
 	padding-left: 1rem;
 }
-.post-list li:hover {
+.post-list li:hover, .post-item-list:hover {
 	background-color: lighten( $light, 10% );
 
 	a {
 		color: $red;
 	}
+
+	margin-bottom: 0;
 }
+
+.post-item {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+
 .spacious-separator {
-	margin: 0 0.5em;
+	padding: 0 0.5em;
+	background-color: transparent;
 }
 
 
@@ -98,6 +255,23 @@ ul.post-list {
 }
 
 
+// Images
+
+article {
+	img {
+		max-width: 100%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+hr {
+	max-width: 50%;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
 // Navigation bar
 
 .material-icons {
@@ -110,7 +284,7 @@ ul.post-list {
 }
 
 .navbar-nav .nav-item a:hover {
-	color: $red;
+	color: darken($light, 50%);
 }
 
 .navbar-text {
@@ -123,6 +297,10 @@ ul.post-list {
 
 .navbar-text a:hover {
 	color: darken($light, 50%);
+}
+
+.navbar-nav .nav-item.active a {
+	color: darken($light, 40%);
 }
 
 #active-lang {
@@ -154,6 +332,11 @@ main {
         }
 }
 
+
+.post-list {
+	padding-top: 2rem;
+}
+
 // ---- to-top button 
 
 #totoparrow {
@@ -162,17 +345,27 @@ main {
   top: 20px; /* Place the button at the bottom of the page */
   right: 10px; /* Place the button 10px from the right */
   z-index: 99; /* Make sure it does not overlap */
-  border: 1px solid $light; /* Remove borders */
+  border: 3px solid $light; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: $dark; /* Set a background color */
-  color: $light; /* Text color */
+  background-color: $primary; /* Set a background color */
+  color: $white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px 15px 5px 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 30px; /* Rounded corners */
   font-size: 18px; /* Increase font size */
+
+  .material-icons {
+	  color: $light;
+	  text-decoration: none;
+  };
+
+  .material-icons:hover {
+	  color: $white;
+	  text-decoration: none;
+  }
 }
 
 #totoparrow:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
+  background-color: $red;
 }
 

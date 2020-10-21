@@ -1,8 +1,8 @@
 - url: /
   name: 
-    - Home
-    - Inicio
+   en: Home
+   es: Inicio
 - url: /about.html
   name:
-    - About
-    - Acerca de...
+    en: About
+    es: Acerca de...

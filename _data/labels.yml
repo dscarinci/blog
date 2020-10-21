@@ -1,0 +1,10 @@
+en:
+  site_title: Numbers and letters
+  categories: Sort by category
+  posts_by_date: Sort by date 
+  folder: en/
+es:
+  site_title: Números y letras
+  categories: Ordenar por tema
+  posts_by_date: Ordenar por fecha
+  folder: es/

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<url>
+		<loc>http://localhost:4000/en/index%20(copia).html</loc>
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="en"
+				href="http://localhost:4000/en/index%20(copia).html"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="en"
+				href="http://localhost:4000/en/"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="es"
+				href="http://localhost:4000/es/"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="es"
+				href="http://localhost:4000/"/>
+	
+	</url>
+	<url>
+		<loc>http://localhost:4000/en/</loc>
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="en"
+				href="http://localhost:4000/en/index%20(copia).html"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="en"
+				href="http://localhost:4000/en/"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="es"
+				href="http://localhost:4000/es/"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="es"
+				href="http://localhost:4000/"/>
+	
+	</url>
+	<url>
+		<loc>http://localhost:4000/es/</loc>
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="en"
+				href="http://localhost:4000/en/index%20(copia).html"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="en"
+				href="http://localhost:4000/en/"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="es"
+				href="http://localhost:4000/es/"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="es"
+				href="http://localhost:4000/"/>
+	
+	</url>
+	<url>
+		<loc>http://localhost:4000/</loc>
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="en"
+				href="http://localhost:4000/en/index%20(copia).html"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="en"
+				href="http://localhost:4000/en/"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="es"
+				href="http://localhost:4000/es/"/>
+	
+			<xhtml:link
+               		rel="alternate"
+               		hreflang="es"
+				href="http://localhost:4000/"/>
+	
+	</url>
+	
+	<url>
+                <loc>http://localhost:4000/visualizaci%C3%B3n%20de%20datos/2020/08/10/histograma.html</loc>
+                        <xhtml:link
+                        	rel="alternate"
+                        	hreflang="es"
+                        	href="http://localhost:4000/visualizaci%C3%B3n%20de%20datos/2020/08/10/histograma.html"/>
+		<lastmod>2020-08-10T00:00:00+02:00</lastmod>
+        	<changefreq>weekly</changefreq>
+        
+                        <xhtml:link
+                        	rel="alternate"
+                        	hreflang="en"
+                        	href="http://localhost:4000/data%20visualization/2020/08/10/histogram.html"/>
+		<lastmod>2020-08-10T00:00:00+02:00</lastmod>
+        	<changefreq>weekly</changefreq>
+        
+        </url>  
+        <url>
+                <loc>http://localhost:4000/data%20visualization/2020/08/10/histogram.html</loc>
+                        <xhtml:link
+                        	rel="alternate"
+                        	hreflang="es"
+                        	href="http://localhost:4000/visualizaci%C3%B3n%20de%20datos/2020/08/10/histograma.html"/>
+		<lastmod>2020-08-10T00:00:00+02:00</lastmod>
+        	<changefreq>weekly</changefreq>
+        
+                        <xhtml:link
+                        	rel="alternate"
+                        	hreflang="en"
+                        	href="http://localhost:4000/data%20visualization/2020/08/10/histogram.html"/>
+		<lastmod>2020-08-10T00:00:00+02:00</lastmod>
+        	<changefreq>weekly</changefreq>
+        
+        </url>  
+        
+
+</urlset>

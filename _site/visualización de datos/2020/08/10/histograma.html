@@ -1,0 +1,197 @@
+<!doctype html>
+        <html lang="es">
+		<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Números y letras - ¿Qué es un histograma? </title>
+    <link rel="icon" 
+      type="image/png" 
+      href="...">
+    <link rel="stylesheet" href=http://localhost:4000/assets/css/styles.css >
+    <link rel="stylesheet" href=http://localhost:4000/assets/css/syntaxhighlighting.css >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Playfair+Display:wght@700&family=Unica+One&display=swap" rel="stylesheet">
+</head>
+
+
+		<body>
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <div class="container-fluid vh-100"> <!-- container -->
+	    	    <div class="row"> <!-- first row -->
+		<div class="col">
+    <h1 class="text-center text-wrap p-5" id="page-title"><a href="">Números y letras</a></h1>
+		</div>
+	</div> <!-- end of row -->
+	<div class="row justify-content-center"> <! --second row -->
+		<div class="col-11 col-lg-9 col-xl-7" id="content-col"> 
+			<nav class="navbar navbar-expand-md">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="material-icons">menu</i></button>
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    		<ul class="navbar-nav mr-auto">
+
+  		
+		
+			<li class="nav-item ">
+				<a class="nav-link" href="http://localhost:4000/es/">Inicio</a>
+			</li>
+		
+		
+			<li class="nav-item ">
+				<a class="nav-link" href="http://localhost:4000/es/about.html">Acerca de...</a>
+			</li>
+		
+		</ul>
+		<span class="navbar-text">
+		
+				
+			
+    				<a href="/data%20visualization/2020/08/10/histogram.html"  >en</a>
+				 | 
+			
+    				<a href="/visualizaci%C3%B3n%20de%20datos/2020/08/10/histograma.html"  id="active-lang" >es</a>
+				
+				
+		
+    		</span>
+  	</div>
+</nav>
+
+
+			<main><div><article class="text-justify"><p>Una vez hemos obtenido datos sobre algún tema o pregunta que nos interesa, ¿por dónde empezamos a analizarlos?</p>
+
+<p>La mejor forma de familiarizarnos con nuestros datos es representarlos gráficamente. El <strong>histograma</strong>, tema de esta entrada, es un tipo de gráfico que nos permite observar <strong>cómo se distribuye</strong> una variable, ya que responde a la pregunta <strong>¿cuántos hay de cada clase?</strong></p>
+
+<p>Vamos a utilizar las novelas <em>Rayuela</em> y <em>Cien años de soledad</em> para ilustrar este concepto. Analizaremos un aspecto del estilo de sus autores: la longitud de sus frases.<!--excerpt--></p>
+
+<h1 id="los-datos">Los datos</h1>
+
+<p>He recopilado en una tabla todas las oraciones de cada una de estas novelas y he registrado su longitud<sup id="fnref:spacy" role="doc-noteref"><a href="#fn:spacy" class="footnote">1</a></sup>. He aquí las primeras filas de la tabla:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Sentence</th>
+      <th style="text-align: right">Sent.Length</th>
+      <th style="text-align: left">Work</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">¿Encontraría a la Maga?</td>
+      <td style="text-align: right">4</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tantas veces me había bastado asomarme, viniendo por la rue de Seine, al arco que da al Quai de Conti, y apenas la luz de ceniza y olivo que flota sobre el río me dejaba distinguir las formas, ya su silueta delgada se inscribía en el Pont des Arts, a veces andando de un lado a otro, a veces detenida en el pretil de hierro, inclinada sobre el agua.</td>
+      <td style="text-align: right">69</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Y era tan natural cruzar la calle, subir los peldaños del puente, entrar en su delgada cintura y acercarme a la Maga que sonreía sin sorpresa, convencida como yo de que un encuentro casual era lo menos casual en nuestras vidas, y que la gente que se da citas precisas es la misma que necesita papel rayado para escribirse o que aprieta desde abajo el tubo de dentífrico.</td>
+      <td style="text-align: right">68</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pero ella no estaría ahora en el puente.</td>
+      <td style="text-align: right">8</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Su fina cara de translúcida piel se asomaría a viejos portales en el ghetto del Marais, quizá estuviera charlando con una vendedora de papas fritas o comiendo una salchicha caliente en el boulevard de Sébastopol.</td>
+      <td style="text-align: right">35</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">De todas maneras subí hasta el puente, y la Maga no estaba.</td>
+      <td style="text-align: right">12</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="el-histograma">El histograma</h1>
+
+<p>El siguiente histograma muestra la distribución de la longitud de las oraciones en Rayuela<sup id="fnref:oraciones_largas" role="doc-noteref"><a href="#fn:oraciones_largas" class="footnote">2</a></sup> (la columna <code class="language-plaintext highlighter-rouge">Sent.Length</code>). En el eje horizontal (el eje de abcisas) encontramos la categoría «número de palabras de la oración», mientras que el eje de ordeandas (la altura de cada barra) nos indica cuántas oraciones de cada longitud encontramos en la novela.</p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/1_es.png" alt="histograma de Rayuela" /></p>
+
+<p>Para variables discretas<sup id="fnref:datos_discretos" role="doc-noteref"><a href="#fn:datos_discretos" class="footnote">3</a></sup>, como en este caso, suele convenir conviene crear categorías agrupadas para hacerse una mejor idea de la distribución de los datos. Así, el siguiente histograma representa lo mismo que el anterior, pero cada barra corresponde a un intervalo de longitudes: [0,5), [5,10), [10,15), etcétera<sup id="fnref:intervalos" role="doc-noteref"><a href="#fn:intervalos" class="footnote">4</a></sup>.</p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/2_es.png" alt="histograma de Rayuela" /></p>
+
+<p>Podemos describir este gráfico explicando que tiene un <strong>pico</strong> en torno a la categoría 5-10, con una <strong>cola</strong> a la derecha.</p>
+
+<p>Veamos ahora el caso de <em>Cien años de soledad</em> con los mismos diagramas.</p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/3_es.png" alt="histograma de Cien años de soledad" /></p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/4_es.png" alt="histograma de Cien años de soledad" /></p>
+
+<p>En el caso de <em>Rayuela</em>, las oraciones están muy concentradas en torno a longitudes cortas, la gran mayoría con menos de 20 palabras. Sin embargo, aunque en la obra de García Márquez la categoría más frecuente también es 5-10, el pico no es tan agudo y vemos que las oraciones en el rango 20-40 palabras también son muy frecuentes.</p>
+
+<p>Para observar mejor la diferencia, podemos representar ambos histogramas juntos. Pero antes, fijémonos bien en el eje vertical de ambos gráficos. Las frecuencias en <em>Rayuela</em> son mayores, simplemente porque la novela es más larga. Los histogramas como los de arriba se denominan <strong>de frecuencias absolutas</strong> y muestran el número de ocurrencias sin ninguna transformación.</p>
+
+<p>Para comparar las dos distribuciones de interés, es mejor que utilicemos un histograma <strong>de frecuencias relativas</strong> que nos muestre la proporción de cada clase con relación al total de observaciones. En un histograma de frecuencias relativas, la altura de la barra se obtiene dividiendo el número de observaciones de cada clase por el total; en este caso, el número de oraciones de cierta longitud dividido entre el número total de oraciones de cada novela. Esto significa que los histogramas de frecuencias relativas tienen exactamente la misma forma que los de frecuencias absolutas.</p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/6_es.png" alt="histograma de Rayuela frente a Cien años de soledad" /></p>
+
+<p>En primer lugar, debemos saber que la suma de las alturas de las barras de estos histogramas es la misma para <em>Rayuela</em> y para <em>Cien años</em>. ¿Puedes ver por qué?<sup id="fnref:area" role="doc-noteref"><a href="#fn:area" class="footnote">5</a></sup></p>
+
+<p>En <em>Rayuela</em>, las oraciones de entre 5 y 20 palabras constituyen aproximadamente el 20% del total, y las oraciones más cortas son las más abundantes. En cambio, este mismo porcentaje en <em>Cien años de soledad</em> se distribuye entre 5 y 40 palabras, y todas las longitudes son aproximadamente igual de frecuentes.</p>
+
+<p>Me parece que esto se traduciría en una estilo más fluido para el autor argentino, y una prosa más pesada para el colombiano. ¿Se percibe esta diferencia al leer a Cortázar y a García Márquez?</p>
+
+<h1 id="en-resumen">En resumen…</h1>
+<h2 id="qué-es-un-histograma">¿Qué es un histograma?</h2>
+<p>Un histograma es un gráfico que permite visualizar la <strong>distribución</strong> de los datos.</p>
+
+<h2 id="con-qué-tipos-de-datos-se-utiliza">¿Con qué tipos de datos se utiliza?</h2>
+<p>Con datos <strong>numéricos</strong>, tanto discretos –número de hermanos, número de palabras– o continuos –altura, temperatura–. Si trabajamos con variables continuas, las categorías son agrupadas por defecto.</p>
+
+<h2 id="qué-forma-tiene">¿Qué forma tiene?</h2>
+<p>Diagrama de barras <strong>sin espacio entre las barras</strong>. Un diagrama de barras con espacio entre las barras se usa para datos categóricos (es decir, para categorías no numéricas como colores, países, tipos de pájaros, etc.)</p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/barplot_es.png" alt="ejemplo de diagrama de barras" /></p>
+
+<hr />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:spacy" role="doc-endnote">
+      <p>Para segmentar los textos en oraciones he usado la biblioteca de NLP <a href="http://spacy.io" target="_blank" rel="noopener">Spacy</a>. El código está disponible en: xxx.] <a href="#fnref:spacy" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:oraciones_largas" role="doc-endnote">
+      <p>He eliminado las oraciones de más de 200 palabras de ambas novelas, ya que eran muy escasas. <a href="#fnref:oraciones_largas" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:datos_discretos" role="doc-endnote">
+      <p>Los datos numéricos pueden ser <strong>discretos</strong> o <strong>continuos</strong>. El número de hijos de una familia, el número de empleados de una empresa o el número de habitaciones de una casa son ejemplos de datos discretos. La altura, el peso o la temperatura son ejemplos de datos continuos. <a href="#fnref:datos_discretos" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:intervalos" role="doc-endnote">
+      <p>En matemáticas existe una convención respecto a los paréntesis: los paréntesis cuadrados <code class="language-plaintext highlighter-rouge">[</code> son inclusivos, y los redondos <code class="language-plaintext highlighter-rouge">(</code>, exclusivos. Así, [0,5) quiere decir [0, 1, 2, 3, 4]. <a href="#fnref:intervalos" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:area" role="doc-endnote">
+      <p>Pista: la suma de las alturas de las barras debe ser 1. <a href="#fnref:area" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</article>
+<h2 class="text-center" id="post-title"><span>¿Qué es un histograma?</span></h2>
+</div></main>
+		</div>
+         </div> <!-- end of row -->
+         <button onclick="topFunction()" id="totoparrow" title="Go to top">
+                <i class="material-icons">arrow_upward</i>
+         </button>
+    </div> <!-- end of container -->
+    <script src=http://localhost:4000/assets/js/scripts.js></script>
+  </body>
+</html>
+

@@ -1,5 +1,7 @@
 - name: en
-  index: 0
+  full_name: English
+  folder: en/
 - name: es
-  index: 1
+  full_name: Castellano
+  folder: es/
 

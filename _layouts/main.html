@@ -10,13 +10,13 @@
     <div class="container-fluid vh-100"> <!-- container -->
 	    	    <div class="row"> <!-- first row -->
 		<div class="col">
-		<h1 class="text-center text-wrap p-5">Distribución anormal</h1>
+    <h1 class="text-center text-wrap p-5" id="page-title"><a href="{{ url | absolute_url }}">{{ site.data.labels[page.lang].site_title }}</a></h1>
 		</div>
 	</div> <!-- end of row -->
 	<div class="row justify-content-center"> <! --second row -->
 		<div class="col-11 col-lg-9 col-xl-7" id="content-col"> 
 			{% include nav.html %}
-			<main>{{ content }}</main>
+			<main><div>{{ content }}</div></main>
 		</div>
          </div> <!-- end of row -->
          <button onclick="topFunction()" id="totoparrow" title="Go to top">

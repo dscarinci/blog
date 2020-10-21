@@ -1,15 +1,6 @@
 ---
 layout: main 
 ---
-<p class="date text-right">
-{% if page.lang == "es" %}
-	{{ page.date | date: '%-d' }} de 
-	{% assign m = page.date | date: '%-m' | minus: 1 %}
-	{{ site.data.months.es[m] }} de {{ page.date | date: "%Y" }}
-{% else %}
-	{{ page.date | date_to_long_string }}</p>
-{% endif %}
-
-<h2 class="text-center"><span>{{ page.title }}</span></h2>
 
 <article class="text-justify">{{ content }}</article>
+<h2 class="text-center" id="post-title"><span>{{ page.title }}</span></h2>

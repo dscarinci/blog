@@ -1,0 +1,197 @@
+<!doctype html>
+        <html lang="en">
+		<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Numbers and letters - What is a histogram? </title>
+    <link rel="icon" 
+      type="image/png" 
+      href="...">
+    <link rel="stylesheet" href=http://localhost:4000/assets/css/styles.css >
+    <link rel="stylesheet" href=http://localhost:4000/assets/css/syntaxhighlighting.css >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Playfair+Display:wght@700&family=Unica+One&display=swap" rel="stylesheet">
+</head>
+
+
+		<body>
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <div class="container-fluid vh-100"> <!-- container -->
+	    	    <div class="row"> <!-- first row -->
+		<div class="col">
+    <h1 class="text-center text-wrap p-5" id="page-title"><a href="">Numbers and letters</a></h1>
+		</div>
+	</div> <!-- end of row -->
+	<div class="row justify-content-center"> <! --second row -->
+		<div class="col-11 col-lg-9 col-xl-7" id="content-col"> 
+			<nav class="navbar navbar-expand-md">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="material-icons">menu</i></button>
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    		<ul class="navbar-nav mr-auto">
+
+  		
+		
+			<li class="nav-item ">
+				<a class="nav-link" href="http://localhost:4000/en/">Home</a>
+			</li>
+		
+		
+			<li class="nav-item ">
+				<a class="nav-link" href="http://localhost:4000/en/about.html">About</a>
+			</li>
+		
+		</ul>
+		<span class="navbar-text">
+		
+				
+			
+    				<a href="/data%20visualization/2020/08/10/histogram.html"  id="active-lang" >en</a>
+				 | 
+			
+    				<a href="/visualizaci%C3%B3n%20de%20datos/2020/08/10/histograma.html"  >es</a>
+				
+				
+		
+    		</span>
+  	</div>
+</nav>
+
+
+			<main><div><article class="text-justify"><p>Once we have gathered data on a topic or question we are interested about, where do we start?</p>
+
+<p>The best way to get to know our data is to represent them graphically. The histogram is a type of plot that shows <strong>how a numerical variable is distributed</strong> over its different values by replying to the question <strong>how many are there in each class?</strong></p>
+
+<p>I will use the novels <em>Rayuela</em> and <em>Cien años de soledad</em> (<em>One Hundred Years of Solitude</em>) to illustrate this concept. I will focus on one aspect of the writing style of their authors: the length of sentences.<!--excerpt--></p>
+
+<h1 id="the-data">The data</h1>
+
+<p>I have created a table that contains every sentence of the two novels and their corresponding length<sup id="fnref:spacy" role="doc-noteref"><a href="#fn:spacy" class="footnote">1</a></sup>. You can check its first rows here:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Sentence</th>
+      <th style="text-align: right">Sent.Length</th>
+      <th style="text-align: left">Work</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">¿Encontraría a la Maga?</td>
+      <td style="text-align: right">4</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tantas veces me había bastado asomarme, viniendo por la rue de Seine, al arco que da al Quai de Conti, y apenas la luz de ceniza y olivo que flota sobre el río me dejaba distinguir las formas, ya su silueta delgada se inscribía en el Pont des Arts, a veces andando de un lado a otro, a veces detenida en el pretil de hierro, inclinada sobre el agua.</td>
+      <td style="text-align: right">69</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Y era tan natural cruzar la calle, subir los peldaños del puente, entrar en su delgada cintura y acercarme a la Maga que sonreía sin sorpresa, convencida como yo de que un encuentro casual era lo menos casual en nuestras vidas, y que la gente que se da citas precisas es la misma que necesita papel rayado para escribirse o que aprieta desde abajo el tubo de dentífrico.</td>
+      <td style="text-align: right">68</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Pero ella no estaría ahora en el puente.</td>
+      <td style="text-align: right">8</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Su fina cara de translúcida piel se asomaría a viejos portales en el ghetto del Marais, quizá estuviera charlando con una vendedora de papas fritas o comiendo una salchicha caliente en el boulevard de Sébastopol.</td>
+      <td style="text-align: right">35</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">De todas maneras subí hasta el puente, y la Maga no estaba.</td>
+      <td style="text-align: right">12</td>
+      <td style="text-align: left">Rayuela</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="the-histogram">The histogram</h1>
+
+<p>The following histogram shows the distribution of <em>Rayuela</em>’s sentence lengths<sup id="fnref:long_sentences" role="doc-noteref"><a href="#fn:long_sentences" class="footnote">2</a></sup> (column  <code class="language-plaintext highlighter-rouge">Sent.Length</code>). In the horizontal axis we find the category “number of words in sentence”; the vertical axis (the height of the bars) tells us how many sentences of each length we find in the novel.</p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/1_en.png" alt="Rayuela's histogram" /></p>
+
+<p>When we’re dealing with discrete variables<sup id="fnref:discrete_data" role="doc-noteref"><a href="#fn:discrete_data" class="footnote">3</a></sup>, as is the case, creating grouped categories can give a clearer –less noisy– picture of tt distribution of the data. For instance, the next histogram depicts exactly the same data as the previous one, but each bar represents an interval instead of a single length: [0,5), [5,10), [10,15), etcetera<sup id="fnref:intervals" role="doc-noteref"><a href="#fn:intervals" class="footnote">4</a></sup>.</p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/2_en.png" alt="Rayuela's histogram" /></p>
+
+<p>To describe this plot, we can say that it has a <strong>peak</strong> around category 5-10, and that it is <strong>skewed to the right</strong>.</p>
+
+<p>Now, let us turn to <em>One Hundred Years of Solitude</em> and look at the same two plots.</p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/3_en.png" alt="Cien años de soledad's histogram" /></p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/4_en.png" alt="Cien años de soledad's histogram" /></p>
+
+<p>In <em>Rayuela</em>’s case, sentences cluster around short lengths and most of them have less than 20 words. Although in García Márquez’s work the most common category is also 5-10, the peak is not so sharp and longer sentences (20-40) seem very frequent as well.</p>
+
+<p>In order to appreciate the difference better, we could represent both histograms on the same graph. But before that, let us have a closer look at the vertical axes: frequencies are higher for <em>Rayuela</em>, simply because it is longer. Histograms like the ones above are called <strong>absolute frequency histograms</strong> and they show the raw number of occurrences.</p>
+
+<p>In order to compare two distributions, it would be better to use a <strong>relative frequency histogram</strong>. This type of histogram shows the proportion of each class, relative to the total number of observations. In a relative frequency histogram, the height of the bars is calculated by dividing the number of observations in a class by the total; in our case, the number of sentences of a given group divided by the total number of sentences for each novel. This means that relative frequency histograms have the exact same shape as their absolute frequency counterparts</p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/6_en.png" alt="Histogram of Rayuela vs. Cien años de soledad" /></p>
+
+<p>First, notice that the sum of the heights of the bars of these histograms is the same for both novels. Can you see why?<sup id="fnref:area" role="doc-noteref"><a href="#fn:area" class="footnote">5</a></sup>.</p>
+
+<p>The relative frequency histogram tells us that, in <em>Rayuela</em>, sentences that are from 5 to 20 words long make up about 20% of the text, with shorter sentences being more common. This same percentage is distributed among sentences that are 5 to 40 words long in <em>Cien años de soledad</em>, with all lengths being approximately equally frequent.</p>
+
+<p>I think this would translate in a more agile style in the case of the Argentinian author, and a heavier prose in the work of the Colombian. Have you noticed this difference when reading Cortázar and García Márquez?</p>
+
+<h1 id="in-summary">In summary…</h1>
+<h2 id="what-is-a-histogram">What is a histogram?</h2>
+<p>A histogram is a plot that shows the <strong>distribution</strong> of the data.</p>
+
+<h2 id="what-kind-of-data-can-it-be-used-with">What kind of data can it be used with?</h2>
+<p>Numerical data, either discrete –number of siblings, number of words– or continuous –height, temperature. In the case of continuous variables, categories are grouped by default.</p>
+
+<h2 id="how-does-it-look-like">How does it look like?</h2>
+<p>It’s a bar plot with <strong>no space between bars</strong>. A bar plot with space between bars is used with categorical data (that is, non-numerical categories such as colors, countries, types of birds, etcetera.)</p>
+
+<p><img src="http://localhost:4000/assets/img/histogram1/barplot_en.png" alt="barplot example" /></p>
+
+<hr />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:spacy" role="doc-endnote">
+      <p>I used the NLP library <a href="http://spacy.io" target="_blank" rel="noopener">Spacy</a> in order to segment the texts in sentences. The code is available <a href="working_link">here</a>.] <a href="#fnref:spacy" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:long_sentences" role="doc-endnote">
+      <p>I’ve removed sentences longer than 200 words from both works, since there were extremely few. <a href="#fnref:long_sentences" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:discrete_data" role="doc-endnote">
+      <p>Numerical data can be <strong>discrete</strong> or <strong>continuous</strong>. Count data such as the number of children in a family, the number of employees in a company, or the number of bedrooms in a house are examples of discrete data. Height, weight and temperature are examples of continuous data. <a href="#fnref:discrete_data" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:intervals" role="doc-endnote">
+      <p>There is a convention in Math regarding parentheses: square brackets <code class="language-plaintext highlighter-rouge">[</code> are inclusive, round brackets <code class="language-plaintext highlighter-rouge">(</code>, exclusive. Therefore, [0,5) means [0, 1, 2, 3, 4]. <a href="#fnref:intervals" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:area" role="doc-endnote">
+      <p>Hint: the sum is 1. <a href="#fnref:area" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</article>
+<h2 class="text-center" id="post-title"><span>What is a histogram?</span></h2>
+</div></main>
+		</div>
+         </div> <!-- end of row -->
+         <button onclick="topFunction()" id="totoparrow" title="Go to top">
+                <i class="material-icons">arrow_upward</i>
+         </button>
+    </div> <!-- end of container -->
+    <script src=http://localhost:4000/assets/js/scripts.js></script>
+  </body>
+</html>
+

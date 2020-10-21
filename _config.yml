@@ -1,9 +1,14 @@
 url: http://127.0.0.1:4000
 baseurl: /
 
-# each language has an index
-lang:
-  - name: en
-    index: 0
-  - name: es
-    index: 1
+highlighter: rouge
+
+excerpt_separator: <!--excerpt-->
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

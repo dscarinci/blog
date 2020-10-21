@@ -3,18 +3,11 @@
 		<i class="material-icons">menu</i></button>
   	<div class="collapse navbar-collapse" id="navbarSupportedContent">
     		<ul class="navbar-nav mr-auto">
-		{% assign i = 0 %}
-		{% for lang in site.data.languages %}
-			{% if lang.name  == page.lang %}
-				{% assign i = lang.index %}
-				{% break %}
-			{% endif %}
-		{% endfor %}
 
   		{% for item in site.data.navigation %}
 		{% capture url %}/{{ page.lang }}{{ item.url }}{% endcapture %}
 			<li class="nav-item {% if page.url == url %}active{% endif %}">
-				<a class="nav-link" href="{{ url | absolute_url }}">{{ item.name[i] }}</a>
+				<a class="nav-link" href="{{ url | absolute_url }}">{{ item.name[page.lang] }}</a>
 			</li>
 		{% endfor %}
 		</ul>
@@ -26,7 +19,13 @@
 			   >{{ lang.name }}</a>
 		   {% if forloop.last == false %} | {% endif %}
 		        {% endfor %}
-		{% elsif page.layout == "main" %}
+		{% elsif page.layout == "post" %}
+			{% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}	
+			{% for post in posts %}
+    				<a href="{{ post.url }}" {% if post.lang ==  page.lang %} id="active-lang"{% endif %} >{{ post.lang }}</a>
+				{% if forloop.last == false %} | {% endif %}
+			{% endfor %}	
+		{% else %}
 			{% for lang in site.data.languages %}
 			{% capture page-lang %}/{{ page.lang }}/{% endcapture %}
 			{% capture current-lang %}/{{ lang.name}}/{% endcapture %}
@@ -34,12 +33,7 @@
 			   {% if page.lang ==  lang.name %} id="active-lang"{% endif %} >{{ lang.name }}</a>
 		   {% if forloop.last == false %} | {% endif %}
 		        {% endfor %}
-		{% elsif page.layout == "post" %}
-			{% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}	
-			{% for post in posts %}
-    				<a href="{{ post.url }}" {% if post.lang ==  page.lang %} id="active-lang"{% endif %} >{{ post.lang }}</a>
-				{% if forloop.last == false %} | {% endif %}
-			{% endfor %}	
+
 		{% endif %}
     		</span>
   	</div>
