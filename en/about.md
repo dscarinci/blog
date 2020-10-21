@@ -12,7 +12,7 @@ I'm Dana Scarinci. I'm a Spanish and English philologist, and I have a Master's 
 
 My work journey up to now has been quite colorful: I started as executive secretary at a food company in Japan and ended up as a predoctoral researcher in Psycholinguistics at [BCBL](https://www.bcbl.eu){:target="_blank" rel="noopener":}, while also trying my hands at text encoding for [CORPES XXI](https://www.rae.es/recursos/banco-de-datos/corpes-xxi){:target="_blank" rel="noopener":}, translating or teaching Spanish.
 
-Throughout this journey, I've been getting into the world of programming and data analysis. Now I work as freelance with researchers in linguistics-related fields, in which I have solid theoretical foundations. If you need help with programming an experiment, analyzing your data, replying to a reviewer about your analysis, etc. you can write to me at: [mailto:hello@danascarinci.com](hello@danascarinci.com){:target="_blank" rel="noopener":}. I have experience with behavioural, eye-tracking and EEG.
+Throughout this journey, I've been getting into the world of programming and data analysis. Now I work as freelance with researchers in linguistics-related fields, in which I have solid theoretical foundations. If you need help with programming an experiment, analyzing your data, replying to a reviewer about your analysis, etc. you can write to me at: [hello@danascarinci.com](mailto:hello@danascarinci.com){:target="_blank" rel="noopener":}. I have experience with behavioural, eye-tracking and EEG.
 
 # About the blog
 
