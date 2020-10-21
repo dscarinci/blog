@@ -25,7 +25,7 @@ In this blog, I write mainly about:
 
 ## Credits
 
-The background image is [a 19th century watercolor painted by José Honorato Lozano](http://bdh.bne.es/bnesearch/biblioteca/FRUTAS%20[Material%20gr%C3%A1fico]%20:%20N%C2%BA%20I/qls/Lozano,%20Jos%C3%A9%20Honorato/qls/bdh0000026162;jsessionid=FE3DC40F43A0CF2B4F142AB7060D8E98){:target="_blank" rel="noopener":}, representing fruits from the Philippines. It's been digitalized by the [Spanish National Library](http://www.bne.es){:target="_blank" rel="noopener"} and is distributed under a [CC-BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/){:target="_blank" rel="noopener" :}.
+The background image is [a 19th century watercolor painted by José Honorato Lozano](http://bdh.bne.es/bnesearch/detalle/bdh0000026162){:target="_blank" rel="noopener":}, representing fruits from the Philippines. It's been digitalized by the [Spanish National Library](http://www.bne.es){:target="_blank" rel="noopener"} and is distributed under a [CC-BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/4.0/){:target="_blank" rel="noopener" :}.
 
 The bilingual Jekyll code for the website is based on [this post](https://www.sylvaindurand.org/making-jekyll-multilingual/){:target="_blank" rel="noopener" :} by Sylvain Durand.
 

@@ -25,7 +25,7 @@ En este blog escribo principalmente sobre:
 
 ## Créditos
 
-La imagen de fondo es [una acuarela del siglo XIX de José Honorato Lozano](http://bdh.bne.es/bnesearch/biblioteca/FRUTAS%20[Material%20gr%C3%A1fico]%20:%20N%C2%BA%20I/qls/Lozano,%20Jos%C3%A9%20Honorato/qls/bdh0000026162;jsessionid=FE3DC40F43A0CF2B4F142AB7060D8E98){:target="_blank" rel="noopener":}, que representa frutas de Filipinas. Ha sido digitalizada por la [Biblioteca Nacional](http://www.bne.es){:target="_blank" rel="noopener":} y distribuida con licencia [CC-BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/){:target="_blank" rel="noopener":}.
+La imagen de fondo es [una acuarela del siglo XIX de José Honorato Lozano](http://bdh.bne.es/bnesearch/detalle/bdh0000026162){:target="_blank" rel="noopener":}, que representa frutas de Filipinas. Ha sido digitalizada por la [Biblioteca Nacional](http://www.bne.es){:target="_blank" rel="noopener":} y distribuida con licencia [CC-BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/){:target="_blank" rel="noopener":}.
 
 El diseño bilingüe de la página se basa en [este post](https://www.sylvaindurand.org/making-jekyll-multilingual/){:target="_blank" rel="noopener":} de Sylvain Durand.
 
